@@ -8,6 +8,8 @@ import productRoutes from "./routes/productRoutes";
 import purchaseRoutes from "./routes/purchasesRoutes";
 import storeRoutes from "./routes/storeRoute";
 import ubicacionRoutes from "./routes/ubicacionRoutes";
+import cors from "cors";
+import { corsOptions } from "./config/corsConfig,";
 
 const app =  express();
 
@@ -16,6 +18,9 @@ dotenv.config();
 
 // Conecta con la BD
 connectionDB();
+
+//Habilita cors
+app.use(cors(corsOptions));
 
 // Habilita la entrada de datos en formato JSON
 app.use(express.json());
